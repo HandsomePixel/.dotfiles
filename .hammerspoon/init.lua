@@ -1,1 +1,2 @@
 require('appShortcuts')
+require('navigator')
