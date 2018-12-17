@@ -69,7 +69,7 @@ let g:closetag_shortcut = '>'
 
 " Lightline Customizations
 let g:lightline = {
-      \  'colorscheme': 'wombat',
+      \  'colorscheme': 'Dracula',
       \  'component_expand': {
       \    'linter_checking': 'lightline#ale#checking',
       \    'linter_warnings': 'lightline#ale#warnings',
