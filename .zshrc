@@ -31,6 +31,9 @@ source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 # Zsh prompt
 PROMPT='%F{yellow}%~ %F{blue}%% %F{white}'
 
+# Alias for ls
+alias ls="ls -G"
+
 # Alias to merge pdf files
 alias mrgpdf="gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=Merged.pdf"
 
