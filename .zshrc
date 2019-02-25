@@ -5,7 +5,7 @@ HISTFILE=~/.zsh_history
 setopt hist_ignore_all_dups
 
 # Change default path
-export PATH="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/bin:$PATH"
+export PATH="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
 
 # Change default editor
 export EDITOR="nvim"
