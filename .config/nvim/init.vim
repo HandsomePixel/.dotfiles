@@ -6,7 +6,7 @@ Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
-Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
 Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
@@ -23,7 +23,7 @@ set clipboard=unnamed
 set termguicolors
 syntax on
 set background=dark
-colorscheme onedark
+colorscheme molokai
 
 " Line numbers
 set number relativenumber
@@ -69,7 +69,7 @@ let g:closetag_shortcut = '>'
 
 " Lightline Customizations
 let g:lightline = {
-      \  'colorscheme': 'onedark',
+      \  'colorscheme': 'molokai',
       \  'component_expand': {
       \    'linter_checking': 'lightline#ale#checking',
       \    'linter_warnings': 'lightline#ale#warnings',
