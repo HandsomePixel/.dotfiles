@@ -8,6 +8,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomasr/molokai'
 Plug 'maxboisvert/vim-simple-complete'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " Disable automatic commenting
