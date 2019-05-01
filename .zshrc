@@ -5,7 +5,7 @@ HISTFILE=~/.zsh_history
 setopt hist_ignore_all_dups
 
 # Change default path
-export PATH="$HOME/.bin/ImageMagick/bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
 
 # Set IMAGE_MAGICK environment variable
 export MAGICK_HOME="$HOME/.bin/ImageMagick"
