@@ -10,6 +10,7 @@ Plug 'tomasr/molokai'
 Plug 'maxboisvert/vim-simple-complete'
 Plug 'ap/vim-css-color'
 Plug 'fremff/vim-css-syntax'
+Plug 'kchmck/vim-coffee-script'
 call plug#end()
 
 " Disable automatic commenting
