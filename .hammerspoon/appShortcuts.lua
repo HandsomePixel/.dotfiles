@@ -28,10 +28,15 @@ end)
 -- Finder custom shortcuts
 Finder = {
   appName = 'Finder',
+  openTermWindowHere = shortcut_template,
   openVolumes = shortcut_template,
 }
 
 Finder:openVolumes({'shift', 'option'}, 'v', function()
   hs.execute('open /Volumes')
   hs.alert('Volumes Folder Opened')
+end)
+
+Finder:openTermWindowHere({'shift', 'option'}, 't', function()
+ hs.osascript.applescriptFromFile('openTermWindowHere.applescript')
 end)
