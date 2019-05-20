@@ -11,6 +11,7 @@ Plug 'maxboisvert/vim-simple-complete'
 Plug 'ap/vim-css-color'
 Plug 'fremff/vim-css-syntax'
 Plug 'kchmck/vim-coffee-script'
+Plug 'Valloric/MatchTagAlways'
 call plug#end()
 
 " Disable automatic commenting
