@@ -30,6 +30,7 @@ Finder = {
   appName = 'Finder',
   openTermWindowHere = shortcut_template,
   openVolumes = shortcut_template,
+  mrgInvoicePDF = shortcut_template,
 }
 
 Finder:openVolumes({'shift', 'option'}, 'v', function()
@@ -39,4 +40,10 @@ end)
 
 Finder:openTermWindowHere({'shift', 'option'}, 't', function()
  hs.osascript.applescriptFromFile('openTermWindowHere.applescript')
+end)
+
+Finder:mrgInvoicePDF({'shift', 'option'}, 'm', function()
+  status, output = hs.osascript.applescript("tell application \"Finder\" to return quoted form of POSIX path of (target of front window as string)")
+  command = "cd " .. output .. "; PATH=/usr/local/bin:$PATH ~/.bin/mrgpdf *Transport.pdf *Transport.pdf *Confirmation.pdf *BOL.pdf"
+  hs.execute(command)
 end)
