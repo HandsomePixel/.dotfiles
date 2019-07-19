@@ -1,7 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'itchyny/vim-gitbranch'
@@ -12,6 +10,7 @@ Plug 'ap/vim-css-color'
 Plug 'fremff/vim-css-syntax'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Valloric/MatchTagAlways'
+Plug 'bling/vim-bufferline'
 call plug#end()
 
 " Disable automatic commenting
@@ -98,3 +97,6 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ }
       \ }
+
+" Bufferline Customizations
+let g:bufferline_show_bufnr = 0
