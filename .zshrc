@@ -5,7 +5,10 @@ HISTFILE=~/.zsh_history
 setopt hist_ignore_all_dups
 
 # Change default path
-export PATH="$HOME/.bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin/:/usr/local/bin:$PATH"
+
+# Change default GOPATH
+export GOPATH="$HOME/.local/go"
 
 # Set IMAGE_MAGICK environment variable
 export MAGICK_HOME="$HOME/.bin/ImageMagick"
@@ -35,29 +38,44 @@ source "$ZSH_PLUGINS/zsh-async-git-prompt/async-git-prompt.plugin.zsh"
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
 # Zsh prompt
-PROMPT='%F{yellow}%~ %F{blue}%% %F{white}'
+PROMPT='%B%F{yellow}%~
+%F{blue}%n %(?.%F{green}.%F{red})→%f%b '
 
 # Alias for ls
-alias ls="ls --format=single-column --color=always --indicator-style=classify"
+alias cls="ls --format=single-column --color=always --indicator-style=classify"
 
 # Alias for neovim
 alias nv='nvim'
 
-# Function for batch converting pdf files to svg
-function b_pdf2svg {
-  res=$(find *.pdf -maxdepth 0 | wc -l | sed 's/^ *//')
-  echo "found $res results"
-  i=1
-
-  cd "$1"
-
-  for FILE in *.pdf; do
-    pdf2svg "$FILE" "$FILE".svg
-    echo -n "["
-    for ((j=0; j<i; j++)) ; do echo -n ' '; done
-    echo -n '=>'
-    for ((j=i; j<$res; j++)) ; do echo -n ' '; done
-    echo -n "] $i / $res" $'\r'
-    ((i++))
-  done
+# Function for curl
+ccrl() {
+  local orig_dir=`pwd`
+  local url=$1
+  local target_dir=$2
+  if [ $# -gt 1 ]; then
+    cd $target_dir
+  fi
+  curl -kLO $url
+  cd $orig_dir
 }
+
+
+
+# Function for batch converting pdf files to svg
+  function b_pdf2svg {
+    res=$(find *.pdf -maxdepth 0 | wc -l | sed 's/^ *//')
+    echo "found $res results"
+    i=1
+
+    cd "$1"
+
+    for FILE in *.pdf; do
+      pdf2svg "$FILE" "$FILE".svg
+      echo -n "["
+      for ((j=0; j<i; j++)) ; do echo -n ' '; done
+      echo -n '=>'
+      for ((j=i; j<$res; j++)) ; do echo -n ' '; done
+      echo -n "] $i / $res" $'\r'
+      ((i++))
+    done
+  }
