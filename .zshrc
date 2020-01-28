@@ -4,17 +4,35 @@ SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 setopt hist_ignore_all_dups
 
-# Change default path
-export PATH="$HOME/.local/bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin/:/usr/local/bin:$PATH"
+# Add ~/.local/bin to path
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add /usr/local/bin and /usr/local/sbin to path (both managed by brew)
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Use gnu coreutils instead of the pre-installed macOS binaries
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Use gnu sed instead of the pre-installed macOS binary
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# Add java runtime to path (not from brew)
+export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin"
+
+# Add ImageMagick to path
+export PATH="$PATH:$MAGICK_HOME/bin"
+
+# Set IMAGE_MAGICK environment variable
+export MAGICK_HOME="$HOME/.local/bin/ImageMagick"*
+
+# Set ImageMagick DYLD_LIBRARY_PATH environment variable
+export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
 
 # Change default GOPATH
 export GOPATH="$HOME/.local/go"
 
-# Set IMAGE_MAGICK environment variable
-export MAGICK_HOME="$HOME/.bin/ImageMagick"
-
-# Set DYLD_LIBRARY_PATH environment variable
-export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+# Change default node path
+export NPM_CONFIG_PREFIX="$HOME/local/node_modules"
 
 # Change default editor
 export EDITOR="nvim"
